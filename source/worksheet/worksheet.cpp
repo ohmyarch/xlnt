@@ -967,7 +967,7 @@ void worksheet::print_title_rows(row_t last_row)
 
 void worksheet::print_title_rows(row_t first_row, row_t last_row)
 {
-    d_->print_title_rows_ = std::to_string(first_row) + ":" + std::to_string(last_row);
+    d_->print_title_rows_ = "$" + std::to_string(first_row) + ":$" + std::to_string(last_row);
 }
 
 void worksheet::print_title_cols(column_t last_column)
@@ -977,7 +977,7 @@ void worksheet::print_title_cols(column_t last_column)
 
 void worksheet::print_title_cols(column_t first_column, column_t last_column)
 {
-    d_->print_title_cols_ = first_column.column_string() + ":" + last_column.column_string();
+    d_->print_title_cols_ = "$" + first_column.column_string() + ":$" + last_column.column_string();
 }
 
 std::string worksheet::print_titles() const
