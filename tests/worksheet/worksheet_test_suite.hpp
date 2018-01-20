@@ -420,11 +420,11 @@ public:
 
         auto ws = wb.active_sheet();
         ws.print_title_rows(3);
-        xlnt_assert_equals(ws.print_titles(), "Sheet1!1:3");
+        xlnt_assert_equals(ws.print_titles(), "Sheet1!$1:$3");
 
         auto ws2 = wb.create_sheet();
         ws2.print_title_cols(4);
-        xlnt_assert_equals(ws2.print_titles(), "Sheet2!A:D");
+        xlnt_assert_equals(ws2.print_titles(), "Sheet2!$A:$D");
     }
 
     void test_print_titles_new()
@@ -433,16 +433,16 @@ public:
 
         auto ws = wb.active_sheet();
         ws.print_title_rows(4);
-        xlnt_assert_equals(ws.print_titles(), "Sheet1!1:4");
+        xlnt_assert_equals(ws.print_titles(), "Sheet1!$1:$4");
 
         auto ws2 = wb.create_sheet();
         ws2.print_title_cols("F");
-        xlnt_assert_equals(ws2.print_titles(), "Sheet2!A:F");
+        xlnt_assert_equals(ws2.print_titles(), "Sheet2!$A:$F");
 
         auto ws3 = wb.create_sheet();
         ws3.print_title_rows(2, 3);
         ws3.print_title_cols("C", "D");
-        xlnt_assert_equals(ws3.print_titles(), "Sheet3!2:3,Sheet3!C:D");
+        xlnt_assert_equals(ws3.print_titles(), "Sheet3!$2:$3,Sheet3!$C:$D");
     }
 
     void test_print_area()
